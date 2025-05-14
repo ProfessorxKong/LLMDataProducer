@@ -1,0 +1,63 @@
+{
+    "id": "如何解决这个问题？",
+    "conversations": [
+        {
+            "from": "system",
+            "value": "你是知识问答助手，你可以调用 search 和 llm 能力，并进行任务规划。"
+        },
+        {
+            "from": "user",
+            "value": "设备型号X3000状态码0xE2F1表示什么问题？"
+        },
+        {
+            "from": "assistant",
+            "value": "状态码0xE2F1表示设备通信超时，可能是由于网络连接中断或通信协议配置错误。"
+        },
+        {
+            "from": "user",
+            "value": "如何解决这个问题？A.XXX B.XXX C.XXX D.XXX "
+        },
+        {
+            "from": "assistant",
+            "value": {
+                "thought": "用户询问如何解决X3000设备的通信超时问题，需要搜索解决方案或最佳实践，并生成适合的回答。",
+                "tasks": [
+                    {
+                        "id": 0,
+                        "task": "搜索X3000设备通信超时的解决方法。",
+                        "dep": [],
+                        "function": "search",
+                        "function_paras": {
+                            "core_words": [
+                                "设备型号X3000",
+                                "状态码0xE2F1"
+                            ],
+                            "query": "X3000设备通信超时解决方法",
+                            "rewrite_zh": [
+                                "X3000通信超时如何解决",
+                                "X3000设备通信问题处理方法"
+                            ],
+                            "rewrite_en": [
+                                "How to resolve X3000 communication timeout",
+                                "Solutions for X3000 device communication issues"
+                            ],
+                            "chunk_offset": 0,
+                            "chunk_num": 3
+                        }
+                    },
+                    {
+                        "id": 1,
+                        "task": "根据搜索结果生成对通信超时问题的解决方案。",
+                        "dep": [
+                            0
+                        ],
+                        "function": "llm",
+                        "function_paras": {
+                            "llm_query": "如何解决X3000设备通信超时问题。"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
